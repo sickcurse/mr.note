@@ -38,7 +38,22 @@ if (title && text ) {
         title,
         text,
         id: uuidv4(),
-        
+
     }
+}
+});
+
+fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) throw err;
+    const notes = JSON.parse(data);
+    notes.push(newNote);
+
+    fs.writeFile('./db/db.json', JSON.stringify(notes, null, 2), (err) => {
+      if (err) throw err;
+      res.json(newNote);
+    });
+  });
+} else {
+  res.status(400).send('Note title and text are required');
 }
 });
