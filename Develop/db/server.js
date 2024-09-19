@@ -8,3 +8,6 @@ const PORT = process.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+app.listen(PORT, ()) =>
+    console.log(`Added middleware for JSON parsing, URL-encoded data, and serving static files`)
