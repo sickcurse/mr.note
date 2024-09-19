@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const { text } = require('body-parser');
+const { title } = require('process');
 const app = express();
 const PORT = process.PORT || 3001;
 
@@ -29,4 +31,14 @@ res.json(JSON.parse(detail));
     });
 });
 
-app.
+app.post('/app/notes', (req,res ) => {
+const { title && text } = req.body;
+if (title && text ) {
+    const newNote = {
+        title,
+        text,
+        id: uuidv4(),
+        
+    }
+}
+});
