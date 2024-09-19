@@ -12,3 +12,12 @@ app.use(express.static('public'));
 app.listen(PORT, () => 
   console.log(`App listening at http://localhost:${PORT}`)
 );
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.json(__dirname, 'public/index.html'));
+});
+
+app.get('*', (req, res) => {
+    res.
+}
+)
