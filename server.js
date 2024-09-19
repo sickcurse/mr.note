@@ -18,6 +18,15 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.
-}
-)
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+  });
+  
+
+app.get('/api/notes', (req, res){
+    fs.reradfile('./db/db.json', 'utf8', (err, data) => {
+if (err) throw err;
+res.json(JSON.parse(detail));
+    });
+});
+
+app.
