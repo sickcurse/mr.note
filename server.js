@@ -57,3 +57,23 @@ fs.readFile('./db/db.json', 'utf8', (err, data) => {
   res.status(400).send('Note title and text are required');
 }
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+  
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) throw err;
+      const notes = JSON.parse(data);
+      const newNotes = notes.filter((note) => note.id !== noteId);
+  
+      fs.writeFile('./db/db.json', JSON.stringify(newNotes, null, 2), (err) => {
+        if (err) throw err;
+        res.json({ message: `Note ${noteId} deleted` });
+      });
+    });
+  });
+  
+
+  app.listen(PORT, () =>
+    console.log(`App listening at http://localhost:${PORT}`)
+  );
