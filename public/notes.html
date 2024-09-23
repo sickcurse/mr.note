@@ -9,9 +9,39 @@
 <body>
   <nav class="navbar bg-info">
     <a class="navbar-brand text-light p-3" href="/">Note Taker</a>
+    <div class="icons">
+      <button type="button" class="btn btn-outline-light btn-sm save-note">
+        <span class="fas fa-save"></span>
+        Save Note
+      </button>
+      <button type="button" class="btn btn-outline-light btn-sm new-note">
+        <span class="fas fa-edit"></span>
+        New Note
+      </button>
+      <button type="button" class="btn btn-outline-danger btn-sm clear-btn">
+        <span class="fas fa-times"></span>
+        Clear
+      </button>
+    </div>
   </nav>
   <div class="container-fluid">
+    <div class="row">
+      
+      <div class="col-4 list-container">
+        <div class="card">
+          <ul class="list-group" id="list-group"></ul> 
+        </div>
+      </div>
 
+      <div class="col-8">
+        <form class="note-form">
+          <input type="text" class="form-control note-title mb-3" placeholder="Note Title">
+          <textarea class="form-control note-textarea" rows="8" placeholder="Note Text"></textarea>
+        </form>
+      </div>
+    </div>
   </div>
+  <script src="/Develop/assets/js/index.js"></script>
+
 </body>
 </html>
